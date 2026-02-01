@@ -1,6 +1,7 @@
 const authScanner = require("../scanners/auth.scanner");
 const sqliScanner = require("../scanners/sqli.scanner");
 const headersScanner = require("../scanners/headers.scanner");
+const xssScanner = require("../scanners/xss.scanner");
 
 exports.executeScan = async (targetUrl) => {
   const vulnerabilities = [];
@@ -14,9 +15,12 @@ exports.executeScan = async (targetUrl) => {
   const headerResult = await headersScanner.checkHeaders(targetUrl);
   if (headerResult) vulnerabilities.push(headerResult);
 
+  const xssResult = await xssScanner.checkXSS(targetUrl);
+  if (xssResult) vulnerabilities.push(xssResult);
+
   return {
     target: targetUrl,
     scannedAt: new Date().toISOString(),
-    vulnerabilities
+    vulnerabilities,
   };
 };
