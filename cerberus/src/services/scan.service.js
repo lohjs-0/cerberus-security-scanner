@@ -3,6 +3,7 @@ const sqliScanner = require("../scanners/sqli.scanner");
 const headersScanner = require("../scanners/headers.scanner");
 const xssScanner = require("../scanners/xss.scanner");
 const methodsScanner = require("../scanners/methods.scanner");
+const traversalScanner = require("../scanners/traversal.scanner");
 
 exports.executeScan = async (targetUrl) => {
   const vulnerabilities = [];
@@ -21,6 +22,9 @@ exports.executeScan = async (targetUrl) => {
 
   const methods = await methodsScanner.checkMethods(targetUrl);
   if (methods) vulnerabilities.push(methods);
+
+  const traversal = await traversalScanner.checkTraversal(targetUrl);
+if (traversal) vulnerabilities.push(traversal);
 
   return {
     target: targetUrl,
