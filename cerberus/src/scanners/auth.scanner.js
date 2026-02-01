@@ -6,7 +6,9 @@ exports.checkAuth = async (targetUrl) => {
 
     if (response.status === 200) {
       return {
-        vulnerability: "Missing Authentication",
+        id: "AUTH-001",
+        title: "Missing Authentication",
+        category: "Authentication",
         severity: "HIGH",
         description: "Endpoint acessível sem autenticação"
       };

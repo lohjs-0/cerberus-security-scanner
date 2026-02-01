@@ -16,7 +16,9 @@ exports.checkHeaders = async (targetUrl) => {
 
     if (missing.length > 0) {
       return {
-        vulnerability: "Missing Security Headers",
+        id: "HDR-001",
+        title: "Missing Security Headers",
+        category: "Headers",
         severity: "MEDIUM",
         description: `Headers ausentes: ${missing.join(", ")}`
       };

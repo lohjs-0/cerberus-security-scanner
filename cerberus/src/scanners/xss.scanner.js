@@ -7,7 +7,9 @@ exports.checkXSS = async (targetUrl) => {
 
     if (response.data && response.data.includes(payload)) {
       return {
-        vulnerability: "Cross-Site Scripting (XSS)",
+        id: "XSS-001",
+        title: "Cross-Site Scripting (XSS)",
+        category: "Injection",
         severity: "HIGH",
         description: "Possível XSS refletido detectado"
       };

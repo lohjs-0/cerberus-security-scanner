@@ -7,7 +7,9 @@ exports.checkSQLi = async (targetUrl) => {
 
     if (response.status === 200) {
       return {
-        vulnerability: "SQL Injection",
+        id: "SQLI-001",
+        title: "SQL Injection",
+        category: "Injection",
         severity: "HIGH",
         description: "Possível SQL Injection detectado"
       };

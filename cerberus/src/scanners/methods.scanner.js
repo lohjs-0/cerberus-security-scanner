@@ -15,14 +15,14 @@ exports.checkMethods = async (targetUrl) => {
         if (response.status < 500) {
           allowed.push(method);
         }
-      } catch (err) {
-        // ignorar erro
-      }
+      } catch (err) {}
     }
 
     if (allowed.length > 0) {
       return {
-        vulnerability: "Insecure HTTP Methods",
+        id: "HTTP-001",
+        title: "Insecure HTTP Methods",
+        category: "Configuration",
         severity: "MEDIUM",
         description: `Métodos inseguros habilitados: ${allowed.join(", ")}`
       };
