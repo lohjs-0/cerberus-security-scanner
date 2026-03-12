@@ -1,22 +1,21 @@
 # 🐺 Cerberus Security Scanner
 
-Cerberus é uma API simples e modular para varredura de vulnerabilidades em aplicações web, desenvolvida em Node.js.
+Cerberus is a simple and modular API for scanning vulnerabilities in web applications, built with Node.js.
 
-O projeto identifica problemas comuns de segurança, como:
-- Falta de autenticação
+The project identifies common security issues such as:
+- Missing authentication
 - SQL Injection
-- Headers de segurança ausentes
+- Missing security headers
 
-## 🚀 Funcionalidades
-- Arquitetura modular
-- API REST
-- Relatórios em JSON
-- Fácil expansão
+## 🚀 Features
+- Modular architecture
+- REST API
+- JSON reports
+- Easy to extend
 
-## 🛠 Tecnologias Utilizadas
+## 🛠 Technologies Used
 - Node.js
 - Express.js
 - Axios
 - JavaScript
 - Git & GitHub
-
