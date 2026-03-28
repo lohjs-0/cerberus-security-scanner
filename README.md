@@ -121,7 +121,3 @@ module.exports = async function checkOpenRedirect(url) {
 ```
 
 ---
-
-<div align="center">
-  <sub>⚔️ Guard your applications. Three heads are better than one.</sub>
-</div>
