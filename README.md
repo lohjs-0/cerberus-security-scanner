@@ -1,123 +1,120 @@
 <div align="center">
 
 # 🐺 Cerberus Security Scanner
-
-**A modular API for scanning vulnerabilities in web applications**
+**Uma API modular para varredura de vulnerabilidades em aplicações web**
 
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 [![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/)
 
 </div>
 
 ---
 
-## 🔍 About
+## 🔍 Sobre
 
-Cerberus is a simple and modular REST API built with Node.js that automates the detection of common security vulnerabilities in web applications. Inspired by the three-headed guardian of the underworld, it watches over your application from multiple angles — identifying threats before they become breaches.
-
----
-
-## 🛡️ Detected Vulnerabilities
-
-| Vulnerability | Description |
-|---|---|
-| 🔐 Missing Authentication | Detects endpoints exposed without proper auth protection |
-| 💉 SQL Injection | Identifies patterns susceptible to SQL injection attacks |
-| 🪖 Missing Security Headers | Checks for absent headers like CSP, HSTS, X-Frame-Options, etc. |
+Cerberus é uma API REST simples e modular construída com Node.js que automatiza a detecção de vulnerabilidades de segurança comuns em aplicações web. Inspirado no guardião de três cabeças do submundo, ele vigia sua aplicação por múltiplos ângulos — identificando ameaças antes que se tornem brechas.
 
 ---
 
-## 🚀 Features
+## 🛡️ Vulnerabilidades Detectadas
 
-- **Modular architecture** — each scanner runs as an independent, pluggable module
-- **REST API** — clean HTTP interface to trigger scans and retrieve results
-- **JSON reports** — structured output ready for integration with other tools
-- **Easy to extend** — add new vulnerability checks without touching existing code
-
----
-
-## 🛠️ Tech Stack
-
-- **[Node.js](https://nodejs.org/)** — JavaScript runtime environment
-- **[Express.js](https://expressjs.com/)** — HTTP server and routing
-- **[Axios](https://axios-http.com/)** — HTTP client for making requests to target applications
-- **JavaScript** — core language
-- **Git & GitHub** — version control
+| Vulnerabilidade               | Descrição                                                                 |
+|-------------------------------|---------------------------------------------------------------------------|
+| 🔐 Autenticação Ausente        | Detecta endpoints expostos sem proteção de autenticação adequada          |
+| 💉 SQL Injection               | Identifica padrões suscetíveis a ataques de injeção SQL                   |
+| 🪖 Headers de Segurança Ausentes | Verifica a ausência de headers como CSP, HSTS, X-Frame-Options, etc.   |
 
 ---
 
-## 📦 Getting Started
+## 🚀 Funcionalidades
+
+- **Arquitetura modular** — cada scanner roda como um módulo independente e plugável
+- **API REST** — interface HTTP limpa para disparar varreduras e obter resultados
+- **Relatórios em JSON** — saída estruturada pronta para integração com outras ferramentas
+- **Fácil de estender** — adicione novas verificações sem alterar o código existente
+
+---
+
+## 🛠️ Stack Tecnológica
+
+- **[Node.js](https://nodejs.org/)** — ambiente de execução JavaScript
+- **[Express.js](https://expressjs.com/)** — servidor HTTP e roteamento
+- **[Axios](https://axios-http.com/)** — cliente HTTP para requisições às aplicações alvo
+- **JavaScript** — linguagem principal
+- **Git & GitHub** — controle de versão
+
+---
+
+## 📦 Como Executar
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/cerberus.git
+# Clonar o repositório
+git clone https://github.com/seu-usuario/cerberus.git
 
-# Navigate to the project folder
+# Entrar na pasta do projeto
 cd cerberus
 
-# Install dependencies
+# Instalar dependências
 npm install
 
-# Start the server
+# Iniciar o servidor
 npm start
 ```
 
 ---
 
-## 📡 API Usage
+## 📡 Uso da API
 
-### Run a scan
+### Executar uma varredura
 
 ```http
 POST /scan
 Content-Type: application/json
 
 {
-  "url": "https://target-application.com"
+  "url": "https://aplicacao-alvo.com"
 }
 ```
 
-### Example response
+### Exemplo de resposta
 
 ```json
 {
-  "target": "https://target-application.com",
+  "target": "https://aplicacao-alvo.com",
   "scannedAt": "2026-03-17T12:00:00Z",
   "vulnerabilities": [
     {
-      "type": "Missing Security Headers",
+      "type": "Headers de Segurança Ausentes",
       "severity": "medium",
-      "details": "X-Frame-Options header not found"
+      "details": "Header X-Frame-Options não encontrado"
     },
     {
       "type": "SQL Injection",
       "severity": "high",
-      "details": "Potential injection vector detected at /login"
+      "details": "Possível vetor de injeção detectado em /login"
     }
   ]
 }
 ```
 
-> ⚠️ **Disclaimer:** Use Cerberus only on applications you own or have explicit permission to test. Unauthorized scanning is illegal.
+> ⚠️ **Aviso:** Use o Cerberus apenas em aplicações que você possui ou tem permissão explícita para testar. Varreduras não autorizadas são ilegais.
 
 ---
 
-## 🧩 Adding a New Scanner Module
+## 🧩 Adicionando um Novo Módulo de Scanner
 
-Cerberus is built to be extended. To add a new vulnerability check:
+O Cerberus foi desenvolvido para ser estendido. Para adicionar uma nova verificação de vulnerabilidade:
 
-1. Create a new file inside `/scanners/`
-2. Export an async function that receives the target URL and returns findings
-3. Register it in the main scan pipeline
+1. Crie um novo arquivo dentro de `/scanners/`
+2. Exporte uma função assíncrona que recebe a URL alvo e retorna os resultados
+3. Registre-a no pipeline principal de varredura
 
 ```js
 // scanners/openRedirect.js
 module.exports = async function checkOpenRedirect(url) {
-  // your detection logic here
+  // sua lógica de detecção aqui
   return { type: "Open Redirect", severity: "medium", details: "..." };
 };
 ```
-
----
