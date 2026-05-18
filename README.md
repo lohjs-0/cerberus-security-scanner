@@ -24,7 +24,7 @@
 ## O que é o Cerberus?
 
 <p align="left">
-  <img src="/cerberus.png" align="right" width="220" style="margin-left: 20px; border-radius: 15px;">
+  <img src="1000038566-removebg-preview.png" align="right" width="220" style="margin-left: 20px; border-radius: 15px;">
   <div>
   <p>Scanner de vulnerabilidades para aplicações web</p>
 
