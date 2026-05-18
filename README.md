@@ -1,53 +1,83 @@
 <div align="center">
 
-# 🐺 Cerberus Security Scanner
-**Uma API modular para varredura de vulnerabilidades em aplicações web**
+```
+ ██████╗███████╗██████╗ ██████╗ ███████╗██████╗ ██╗   ██╗███████╗
+██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝██╔══██╗██║   ██║██╔════╝
+██║     █████╗  ██████╔╝██████╔╝█████╗  ██████╔╝██║   ██║███████╗
+██║     ██╔══╝  ██╔══██╗██╔══██╗██╔══╝  ██╔══██╗██║   ██║╚════██║
+╚██████╗███████╗██║  ██║██████╔╝███████╗██║  ██║╚██████╔╝███████║
+ ╚═════╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝
+```
+
+**Guardião de três cabeças que vigia sua aplicação por múltiplos ângulos.**
 
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 [![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/)
+[![License](https://img.shields.io/badge/Licença-MIT-green?style=for-the-badge)](#️-licença)
 
 </div>
 
 ---
 
-## 🔍 Sobre
+## O que é o Cerberus?
 
-Cerberus é uma API REST simples e modular construída com Node.js que automatiza a detecção de vulnerabilidades de segurança comuns em aplicações web. Inspirado no guardião de três cabeças do submundo, ele vigia sua aplicação por múltiplos ângulos — identificando ameaças antes que se tornem brechas.
+<p align="left">
+  <img src="/cerberus.png" align="right" width="220" style="margin-left: 20px; border-radius: 15px;">
+  <div>
+  <p>Scanner de vulnerabilidades para aplicações web</p>
+
+  Cerberus é uma API REST simples e modular construída com Node.js que automatiza a detecção de vulnerabilidades de segurança comuns em aplicações web. Inspirado no guardião de três cabeças do submundo, ele vigia sua aplicação por múltiplos ângulos — identificando ameaças antes que se tornem brechas.
+
+  > ⚠️ **Aviso:** Use o Cerberus apenas em aplicações que você possui ou tem permissão explícita para testar. Varreduras não autorizadas são ilegais.
+
+  </div>
+</p>
+
+<br clear="right">
+
+---
+
+## ✨ Funcionalidades
+
+| Recurso | Descrição |
+|---|---|
+| 🧩 **Arquitetura Modular** | Cada scanner roda como um módulo independente e plugável |
+| 🌐 **API REST** | Interface HTTP limpa para disparar varreduras e obter resultados |
+| 📊 **Relatórios em JSON** | Saída estruturada pronta para integração com outras ferramentas |
+| 🔩 **Fácil de Estender** | Adicione novas verificações sem alterar o código existente |
 
 ---
 
 ## 🛡️ Vulnerabilidades Detectadas
 
-| Vulnerabilidade               | Descrição                                                                 |
-|-------------------------------|---------------------------------------------------------------------------|
-| 🔐 Autenticação Ausente        | Detecta endpoints expostos sem proteção de autenticação adequada          |
-| 💉 SQL Injection               | Identifica padrões suscetíveis a ataques de injeção SQL                   |
-| 🪖 Headers de Segurança Ausentes | Verifica a ausência de headers como CSP, HSTS, X-Frame-Options, etc.   |
+| Vulnerabilidade | Descrição |
+|---|---|
+| 🔐 Autenticação Ausente | Detecta endpoints expostos sem proteção de autenticação adequada |
+| 💉 SQL Injection | Identifica padrões suscetíveis a ataques de injeção SQL |
+| 🪖 Headers de Segurança Ausentes | Verifica a ausência de headers como CSP, HSTS, X-Frame-Options, etc. |
 
 ---
 
-## 🚀 Funcionalidades
+## 🛠️ Stack
 
-- **Arquitetura modular** — cada scanner roda como um módulo independente e plugável
-- **API REST** — interface HTTP limpa para disparar varreduras e obter resultados
-- **Relatórios em JSON** — saída estruturada pronta para integração com outras ferramentas
-- **Fácil de estender** — adicione novas verificações sem alterar o código existente
-
----
-
-## 🛠️ Stack Tecnológica
-
-- **[Node.js](https://nodejs.org/)** — ambiente de execução JavaScript
-- **[Express.js](https://expressjs.com/)** — servidor HTTP e roteamento
-- **[Axios](https://axios-http.com/)** — cliente HTTP para requisições às aplicações alvo
-- **JavaScript** — linguagem principal
-- **Git & GitHub** — controle de versão
+```
+Backend   →  Node.js + Express.js
+HTTP      →  Axios
+Linguagem →  JavaScript
+Versionamento → Git & GitHub
+```
 
 ---
 
-## 📦 Como Executar
+## 🚀 Como rodar
+
+### Pré-requisitos
+
+- [Node.js 18+](https://nodejs.org/)
+
+### Instalação
 
 ```bash
 # Clonar o repositório
@@ -62,6 +92,8 @@ npm install
 # Iniciar o servidor
 npm start
 ```
+
+A API sobe em `http://localhost:3000`.
 
 ---
 
@@ -99,8 +131,6 @@ Content-Type: application/json
 }
 ```
 
-> ⚠️ **Aviso:** Use o Cerberus apenas em aplicações que você possui ou tem permissão explícita para testar. Varreduras não autorizadas são ilegais.
-
 ---
 
 ## 🧩 Adicionando um Novo Módulo de Scanner
@@ -118,3 +148,48 @@ module.exports = async function checkOpenRedirect(url) {
   return { type: "Open Redirect", severity: "medium", details: "..." };
 };
 ```
+
+---
+
+## 📂 Estrutura do projeto
+
+```
+cerberus/
+└── scanners/              # Módulos de detecção independentes
+│   ├── authCheck.js       # Verificação de autenticação ausente
+│   ├── sqlInjection.js    # Detecção de SQL Injection
+│   └── securityHeaders.js # Verificação de headers de segurança
+├── server.js              # Entry point da API
+└── package.json
+```
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Detecção de autenticação ausente
+- [x] Detecção de SQL Injection
+- [x] Verificação de headers de segurança
+- [x] Relatórios em JSON
+- [x] Arquitetura modular
+- [ ] Open Redirect detection
+- [ ] XSS scanning
+- [ ] Integração com GitHub Actions
+- [ ] Dashboard visual de relatórios
+- [ ] Exportar relatório em PDF
+
+---
+
+## ⚖️ Licença
+
+Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+<div align="center">
+
+Feito com ☕ e olhos nas sombras — guard your gates. 🐺
+
+**[⬆ Voltar ao topo](#)**
+
+</div>
