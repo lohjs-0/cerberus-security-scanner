@@ -1,23 +1,4 @@
-<div align="center">
 
-```
- ██████╗███████╗██████╗ ██████╗ ███████╗██████╗ ██╗   ██╗███████╗
-██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝██╔══██╗██║   ██║██╔════╝
-██║     █████╗  ██████╔╝██████╔╝█████╗  ██████╔╝██║   ██║███████╗
-██║     ██╔══╝  ██╔══██╗██╔══██╗██╔══╝  ██╔══██╗██║   ██║╚════██║
-╚██████╗███████╗██║  ██║██████╔╝███████╗██║  ██║╚██████╔╝███████║
- ╚═════╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝
-```
-
-**Guardião de três cabeças que vigia sua aplicação por múltiplos ângulos.**
-
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-[![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/)
-[![License](https://img.shields.io/badge/Licença-MIT-green?style=for-the-badge)](#️-licença)
-
-</div>
 
 ---
 
